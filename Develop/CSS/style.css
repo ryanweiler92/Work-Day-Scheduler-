@@ -13,6 +13,10 @@ textarea{
   padding: 10px;
 }
 
+.border-5 {
+  border-width: 9px !important;
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
