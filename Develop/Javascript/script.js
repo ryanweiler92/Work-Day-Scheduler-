@@ -7,13 +7,21 @@ $(function(){
 //empty array to store tasks
 var tasks = [];
 
+//function that saves task array to local storage
+var saveTasks = function() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    console.log("another save by degea")
+}
+
 //function to save text after user as entered
 $(".sv-btn").click(function(){
-    console.log("david degea")
+    console.log("david degea save button")
     //get form values
-    var taskText = $("#9amTasks").val();
+    var taskText = $(".form-control").val();
 
     //save in tasks array
     tasks.push(taskText)
 
-})
+    saveTasks();
+
+});
