@@ -7,6 +7,7 @@
     <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
     <link rel="stylesheet" href="./Develop/CSS/style.css" />
     <title>Work Day Scheduler</title>
   </head>
@@ -22,9 +23,12 @@
     <main class="container border border-info">
       <!--9 am row-->
      <div class="row">
-      <div class="col-1 border-left-0 border-dark">9 A.M.</div>
-      <div class="col-10 border bg-secondary"></div>
-      <div class="col-1 bg-tertiary border-left border-dark rounded-right"></div>
+      <div class="col-1 d-flex align-items-center justify-content-end border-left-0 border-dark"><h4>9 A.M.</h4></div>
+      <div class="col-10 d-flex border bg-secondary"></div>
+      <div class="col-1 d-flex align-items-center justify-content-center bg-tertiary border-left border-dark rounded-right">
+        <span class="oi oi-lock-locked display-4 d-block"></span>
+        <span class="oi oi-lock-unlocked display-4 d-none"></span>
+      </div>
      </div>
 
 
