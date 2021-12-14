@@ -17,6 +17,19 @@ textarea{
   border-width: 9px !important;
 }
 
+.border-left-0 {
+  border-style: dashed;
+  border-width: 1px;
+}
+
+.bg-secondary {
+  background-color: #D3D3D3 !important
+}
+
+.bg-tertiary {
+  background-color: #40e0d0 !important
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
