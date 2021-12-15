@@ -30,7 +30,7 @@ $(".sv-btn").click(function(){
     
     //get form values
     var taskText = $(".form-control");
-
+    console.log($(".form-control"));
     //save in tasks array
     tasks.push(taskText);
     
