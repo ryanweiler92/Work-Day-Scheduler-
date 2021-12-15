@@ -29,17 +29,11 @@ var saveTasks = function() {
 $(".sv-btn").click(function(){
     
     //get form values
-    var taskText = $(".form-control").val();
-    
-    //var taskTime = "9";
-    //var taskTime = $(this).next(".task-time").val();
+    var taskText = $(".form-control");
 
     //save in tasks array
-    tasks.push({
-        text: taskText,
-        //time: taskTime
-    });
-
+    tasks.push(taskText);
+    
     saveTasks();
 
 });
