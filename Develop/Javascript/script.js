@@ -28,11 +28,17 @@ var saveTasks = function() {
 //function to save text after user as entered
 $(".sv-btn").click(function(){
     
+    var allTasks = document.querySelectorAll('.form-control');
+
+    for (var i = 0; i < allTasks.length; i++) {
+        console.log(allTasks[i]);
+    }
+
     //get form values
-    var taskText = $(".form-control");
-    console.log($(".form-control"));
+    //var taskText = $("#12pmTasks").val();
+    //console.log($("#12pmTasks").val());
     //save in tasks array
-    tasks.push(taskText);
+    //tasks.push(taskText);
     
     saveTasks();
 
