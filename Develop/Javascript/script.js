@@ -15,6 +15,14 @@ var loadTasks = function() {
         tasks = []
     };
 
+    //select all text forms
+   var allTasks = document.querySelectorAll(".form-control");
+
+    allTasks.forEach(a => {
+        for (var i = 0; i < tasks.length; i++) {
+            allTasks[a].value == tasks[i]
+        }
+    })
 
 
 }
@@ -28,10 +36,13 @@ var saveTasks = function() {
 //function to save text after user as entered
 $(".sv-btn").click(function(){
     
+    //variable to select all task text forms
     var allTasks = document.querySelectorAll('.form-control');
 
+    //loop through each text form 
     for (var i = 0; i < allTasks.length; i++) {
-        console.log(allTasks[i]);
+        console.log(allTasks[i].value);
+        tasks.push(allTasks[i].value);
     }
 
     //get form values
