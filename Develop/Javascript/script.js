@@ -8,22 +8,21 @@ $(function(){
 var tasks = [];
 
 //function to load tasks from local storage
-// var loadTasks = function() {
-//      tasks = JSON.parse(localStorage.getItem("tasks"));
-//      //if nothing in local storage create new array
-//         if (!tasks) {
-//          tasks = []
-//         };
+var loadTasks = function() {
+    //get items from local storage
+    localStorage.getItem(JSON.stringify(tasks[i].id), JSON.stringify(tasks[i].text))
+     //if nothing in local storage create new array
+    if (!tasks) {
+     tasks = []
+    }
 
-//     //select all text forms
-//    var allTasks = document.querySelectorAll(".form-control");
+     for (var i = 0; i < tasks.length; i++) {
+    localStorage.getItem(JSON.stringify(tasks[i].id), JSON.stringify(tasks[i].text))
+     }
+     
+    }
 
-//     allTasks.forEach((i) => {
-//         console.log($(this))
-//     })
 
-
-// }
 
 //function that saves task array to local storage
 var saveTasks = function() {
