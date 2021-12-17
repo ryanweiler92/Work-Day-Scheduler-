@@ -4,22 +4,35 @@ $(function(){
     dateElement.text(moment().format('dddd MMMM Do'))
 })
 
+
 //empty object to store tasks
 var tasks = [];
 
+
 //function to load tasks from local storage
 var loadTasks = function() {
-    //get items from local storage
-    localStorage.getItem(JSON.stringify(tasks[i].id), JSON.stringify(tasks[i].text))
+    
      //if nothing in local storage create new array
     if (!tasks) {
      tasks = []
     }
 
-     for (var i = 0; i < tasks.length; i++) {
-    localStorage.getItem(JSON.stringify(tasks[i].id), JSON.stringify(tasks[i].text))
-     }
-     
+    //variable to capture each text area
+    var allTasks = $(".form-control");
+
+    //loop through each text area
+    allTasks.each(function() {
+
+        //variable to get the id of each text area
+        var localStorageKey = $(this).attr("id")
+
+        //variable to retrieve the value of each key in local storage
+        var currentValue = localStorage.getItem(localStorageKey);
+      
+        //setting the text area value from local storage
+        $(this).val(currentValue)
+       
+        })
     }
 
 
@@ -27,7 +40,7 @@ var loadTasks = function() {
 //function that saves task array to local storage
 var saveTasks = function() {
     for (var i = 0; i < tasks.length; i++) {
-    localStorage.setItem(JSON.stringify(tasks[i].id), JSON.stringify(tasks[i].text));
+    localStorage.setItem(tasks[i].id, tasks[i].text);
     }
 };
 
@@ -40,25 +53,21 @@ $(".sv-btn").click(function(){
     //loop through each text form 
     for (var i = 0; i < allTasks.length; i++) {
         
+        //variable to start id's for key
         var taskId = allTasks[i].id;
+        console.log(taskId);
+        //variable to store text from froms
         var taskText = allTasks[i].value; 
 
         console.log(allTasks[i].id);
 
+        //push id's and text to object array
         tasks.push({
             id: taskId,
             text: taskText
         })
-       
-        //tasks.push(allTasks[i].value);
     }
 
-    //get form values
-    //var taskText = $("#12pmTasks").val();
-    //console.log($("#12pmTasks").val());
-    //save in tasks array
-    //tasks.push(taskText);
-    
     saveTasks();
 
 });
@@ -68,4 +77,4 @@ $("#clear-storage").click(function(){
     console.log("storage cleared")
 });
 //load tasks for the first time
-//loadTasks();
+loadTasks();
