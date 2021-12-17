@@ -55,11 +55,9 @@ $(".sv-btn").click(function(){
         
         //variable to start id's for key
         var taskId = allTasks[i].id;
-        console.log(taskId);
+        
         //variable to store text from froms
         var taskText = allTasks[i].value; 
-
-        console.log(allTasks[i].id);
 
         //push id's and text to object array
         tasks.push({
@@ -75,6 +73,17 @@ $(".sv-btn").click(function(){
 $("#clear-storage").click(function(){
     localStorage.clear();
     console.log("storage cleared")
+
+    //variable to capture each text area
+    var allTasks = $(".form-control");
+
+    //loop through each text area
+    allTasks.each(function() {
+        //set each text area to blank
+        $(this).val('')
+})
 });
+
+
 //load tasks for the first time
 loadTasks();
