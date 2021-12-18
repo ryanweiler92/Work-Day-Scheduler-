@@ -2,8 +2,62 @@
 $(function(){
     var dateElement = $('#currentDay');
     dateElement.text(moment().format('dddd MMMM Do'))
+    
 })
 
+//color setting function
+var colorChanger = function(){
+    
+    var allTextArea = $(".form-control");
+    var allDivBg = $(".col-10");
+   
+    //get current time
+    var currentTime = moment().format("H");
+
+    var translateHours = $(".task-time")
+    
+
+    for (var i = 0; i < translateHours.length; i++) {
+
+        var hours = translateHours[i].id;
+
+        console.log(currentTime)
+        console.log(hours)
+
+        
+        $(allTextArea[i]).removeClass("bg-success bg-danger bg-secondary");
+
+        if (hours < currentTime) {
+            $(allTextArea[i]).addClass("bg-secondary")
+        } else if (hours > currentTime) {
+            $(allTextArea[i]).addClass("bg-success")
+        } else {
+            $(allTextArea[i]).addClass("bg-danger")
+        }
+
+    }
+    
+    
+    //allTextArea.each(function(){
+
+
+
+
+        // if (moment().isAfter(time)) {
+        //     $(".form-control").removeClass("bg-success bg-danger");
+        //     $(".form-control").addClass("bg-secondary")
+        // } else if (moment().isBefore(time)) {
+        //     $(".form-control").removeClass("bg-secondary bg-danger");
+        //     $(".form-control").addClass("bg-success")
+        // } else{
+        //     console.log(moment())
+        //     console.log(time)
+        //     $(".form-control").removeClass("bg-secondary bg-danger bg-success");
+        //     $(".form-control").addClass("bg-info")
+        // }
+    //})
+
+}
 
 //empty object to store tasks
 var tasks = [];
@@ -70,7 +124,9 @@ $(".sv-btn").click(function(){
 
 });
 
+//function to clear storage and erase tasks
 $("#clear-storage").click(function(){
+    colorChanger();
     localStorage.clear();
     console.log("storage cleared")
 
@@ -81,6 +137,8 @@ $("#clear-storage").click(function(){
     allTasks.each(function() {
         //set each text area to blank
         $(this).val('')
+
+        
 })
 });
 
