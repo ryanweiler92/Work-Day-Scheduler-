@@ -9,7 +9,7 @@ $(function(){
 var colorChanger = function(){
     
     var allTextArea = $(".form-control");
-    var allDivBg = $(".col-10");
+    var allDivBg = $(".div-background");
    
     //get current time
     var currentTime = moment().format("H");
@@ -26,36 +26,20 @@ var colorChanger = function(){
 
         
         $(allTextArea[i]).removeClass("bg-success bg-danger bg-secondary");
+        $(allDivBg[i]).removeClass("bg-success bg-danger bg-secondary");
 
         if (hours < currentTime) {
             $(allTextArea[i]).addClass("bg-secondary")
+            $(allDivBg[i]).addClass("bg-secondary")
         } else if (hours > currentTime) {
             $(allTextArea[i]).addClass("bg-success")
+            $(allDivBg[i]).addClass("bg-success")
         } else {
             $(allTextArea[i]).addClass("bg-danger")
+            $(allDivBg[i]).addClass("bg-danger")
         }
-
+        
     }
-    
-    
-    //allTextArea.each(function(){
-
-
-
-
-        // if (moment().isAfter(time)) {
-        //     $(".form-control").removeClass("bg-success bg-danger");
-        //     $(".form-control").addClass("bg-secondary")
-        // } else if (moment().isBefore(time)) {
-        //     $(".form-control").removeClass("bg-secondary bg-danger");
-        //     $(".form-control").addClass("bg-success")
-        // } else{
-        //     console.log(moment())
-        //     console.log(time)
-        //     $(".form-control").removeClass("bg-secondary bg-danger bg-success");
-        //     $(".form-control").addClass("bg-info")
-        // }
-    //})
 
 }
 
