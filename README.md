@@ -13,7 +13,7 @@ A simple work scheduler that lets you enter and save events. The rows are color 
 ## Website
 https://ryanweiler92.github.io/Work-Day-Scheduler-/
 
-![Work Day Scheduler-Screenshot](assets/images/Work-Day-Scheduler-Screenshot.jpg)
+![Work Day Scheduler-Screenshot](Assets/Images/Work-Day-Scheduler-Screenshot.jpg)
 
 ## Contribution
 Made by Ryan Weiler
