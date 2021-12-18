@@ -7,27 +7,30 @@ $(function(){
 
 //color setting function
 var colorChanger = function(){
-    
+    //variables for textarea and div
     var allTextArea = $(".form-control");
     var allDivBg = $(".div-background");
    
-    //get current time
-    var currentTime = moment().format("H");
+    //get current time and parse into number format
+    var currentTime = parseInt( moment().format("H") );
 
+    //variable that houses time id
     var translateHours = $(".task-time")
     
-
+    //loop through each textarea
     for (var i = 0; i < translateHours.length; i++) {
 
-        var hours = translateHours[i].id;
+        //get the id from each text area and format as number
+        var hours = parseInt( translateHours[i].id );
 
         console.log(currentTime)
         console.log(hours)
 
-        
+        //remove current classes from each div
         $(allTextArea[i]).removeClass("bg-success bg-danger bg-secondary");
         $(allDivBg[i]).removeClass("bg-success bg-danger bg-secondary");
 
+        //set background colors based on the current time relative to each div's time
         if (hours < currentTime) {
             $(allTextArea[i]).addClass("bg-secondary")
             $(allDivBg[i]).addClass("bg-secondary")
@@ -38,9 +41,7 @@ var colorChanger = function(){
             $(allTextArea[i]).addClass("bg-danger")
             $(allDivBg[i]).addClass("bg-danger")
         }
-        
     }
-
 }
 
 //empty object to store tasks
@@ -126,6 +127,11 @@ $("#clear-storage").click(function(){
 })
 });
 
+//update div colors with color changer function every 30 minutes
+setInterval(colorChanger(), (1000 * 60) * 30);
+
+//execute color changer for the first time
+colorChanger();
 
 //load tasks for the first time
 loadTasks();
